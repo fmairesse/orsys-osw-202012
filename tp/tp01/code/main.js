@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 // Copié depuis https://jsonplaceholder.typicode.com/todos
 const todos = [
@@ -1225,3 +1225,15 @@ console.log("Il y a " + nbCompleted + " todos completed");
 nbCompleted = todos.reduce((acc, todo) => acc + Number(todo.completed), 0);
 
 console.log(`Il y a ${nbCompleted} todos completed`);
+
+// Afficher les todos
+
+// 1. Trouver l'élement dans lequel insérer les todos
+const list = document.querySelector("#app>ul");
+
+// 2. Ajouter un élement dans la liste pour chaque todo
+for (const todo of todos) {
+  const element = document.createElement("li");
+  element.innerText = `${todo.completed ? "☑" : "☐"} ${todo.title}`;
+  list.append(element);
+}
