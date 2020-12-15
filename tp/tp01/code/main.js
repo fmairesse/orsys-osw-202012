@@ -1219,10 +1219,9 @@ for (const todo of todos) {
   nbCompleted += Number(todo.completed);
 }
 
-console.log("hello wolrd", nbCompleted);
+console.log("Il y a " + nbCompleted + " todos completed");
 
 // Compter les todos completed avec la fonction reduce
-nbCompleted = todos.reduce(function (acc, todo) {
-  return acc + Number(todo.completed);
-}, 0);
-console.log(nbCompleted);
+nbCompleted = todos.reduce((acc, todo) => acc + Number(todo.completed), 0);
+
+console.log(`Il y a ${nbCompleted} todos completed`);
