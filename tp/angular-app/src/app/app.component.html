@@ -1,2 +1,2 @@
 <p>Mon application</p>
-<app-hello-world name="toto"></app-hello-world>
+<app-hello-world [name]="title" [boutonDisabled]="monBoutonDisabled" (clickButton)="onClick($event)"></app-hello-world>

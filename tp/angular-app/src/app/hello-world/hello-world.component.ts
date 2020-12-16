@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: "app-hello-world",
@@ -6,9 +6,16 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./hello-world.component.scss"],
 })
 export class HelloWorldComponent implements OnInit {
-  @Input() name = "World";
+  @Input() name = "";
+  @Input() boutonDisabled = true;
+  @Output() clickButton = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  disBonjour() {
+    // alert("Bonjour");
+    this.clickButton.emit(this.name);
+  }
 }
