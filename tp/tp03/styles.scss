@@ -1,0 +1,18 @@
+// Définition de certaines variables de Bootstrap
+// Si non définies, Bootstrap leur donne une valeur par défaut
+$font-family-sans-serif: Arial, sans-serif;
+$body-bg: #f1f1f1;
+
+// Import de modules de Bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/grid";
+
+// Définition de nos styles
+// Peuvent utiliser fonctions et variables de bootstrap
+ul > li {
+  @include text-truncate;
+}
