@@ -1,4 +1,7 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
+import { delay, map, pluck, switchMap } from "rxjs/operators";
 
 export interface Todo {
   title: string;
@@ -9,18 +12,19 @@ export interface Todo {
   providedIn: "root",
 })
 export class WebapiService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getTodos(): Todo[] {
-    return [
-      {
-        title: "Mon todo 1 qsmflsqjflmsdj",
-        completed: true,
-      },
-      {
-        title: "Mon todo 2",
-        completed: false,
-      },
-    ];
+  getTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>("https://jsonplaceholder.typicode.com/todos");
+    // return of([
+    //   {
+    //     title: "Mon todo 1 qsmflsqjflmsdj",
+    //     completed: true,
+    //   },
+    //   {
+    //     title: "Mon todo 2",
+    //     completed: false,
+    //   },
+    // ]).pipe(delay(1000));
   }
 }

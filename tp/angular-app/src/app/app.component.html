@@ -1,4 +1,8 @@
 <p>Mon application</p>
 <app-hello-world [name]="title" [boutonDisabled]="monBoutonDisabled" (clickButton)="onClick($event)"></app-hello-world>
 
+Avec async:
+<app-todo *ngFor="let t of (todos$ | async)" [title]="t.title" [completed]="t.completed"></app-todo>
+
+<br/><br/>Sans async:
 <app-todo *ngFor="let t of todos" [title]="t.title" [completed]="t.completed"></app-todo>
