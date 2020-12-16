@@ -8,6 +8,16 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "angular-app";
   monBoutonDisabled = false;
+  todos = [
+    {
+      title: "Mon todo 1",
+      completed: true,
+    },
+    {
+      title: "Mon todo 2",
+      completed: false,
+    },
+  ];
 
   onClick(name: string) {
     alert(`Hallo ${name}`);
