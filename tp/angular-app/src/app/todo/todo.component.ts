@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: "app-todo",
@@ -7,8 +7,14 @@ import { Component, Input, OnInit } from "@angular/core";
 export class TodoComponent implements OnInit {
   @Input() completed = false;
   @Input() title = "";
+  @Output() completedChange = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onChange(e: Event) {
+    const checked = (e.target as HTMLInputElement).checked;
+    this.completedChange.emit(checked);
+  }
 }

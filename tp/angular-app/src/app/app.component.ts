@@ -28,4 +28,12 @@ export class AppComponent implements OnDestroy {
   onClick(name: string) {
     alert(`Hallo ${name}`);
   }
+
+  nbCompleted(): number {
+    return this.todos.reduce((acc, todo) => Number(todo.completed) + acc, 0);
+  }
+
+  onCompletedChange(todo: Todo, completed: boolean) {
+    todo.completed = completed;
+  }
 }
