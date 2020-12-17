@@ -7,10 +7,10 @@ export class StateComponent extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.state.counter}
         <button onClick={this.handleClick}>Clic me</button>
-      </div>
+      </>
     );
   }
 
