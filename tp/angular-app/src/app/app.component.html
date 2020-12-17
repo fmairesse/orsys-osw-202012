@@ -1,10 +1,15 @@
 <p>Mon application</p>
-<app-hello-world [name]="title" [boutonDisabled]="monBoutonDisabled" (clickButton)="onClick($event)"></app-hello-world>
 
-<!-- Avec async:
-<app-todo *ngFor="let t of (todos$ | async)" [title]="t.title" [completed]="t.completed"></app-todo> -->
+<ul>
+	<!-- <li (click)="pageNumber=1">page1</li>
+	<li (click)="pageNumber=2">page2</li> -->
+	<li><a routerLink="page1">Page1</a></li>
+	<li><a routerLink="page2">Page2</a></li>
+</ul>
 
-{{nbCompleted()}} todos completed
+<!-- <div>
+	<app-page1 *ngIf="pageNumber==1"></app-page1>
+	<app-page2 *ngIf="pageNumber==2"></app-page2>
+</div> -->
 
-<br/><br/>Sans async:
-<app-todo *ngFor="let t of todos" [title]="t.title" [completed]="t.completed" (completedChange)="onCompletedChange(t, $event)"></app-todo>
+<router-outlet></router-outlet>

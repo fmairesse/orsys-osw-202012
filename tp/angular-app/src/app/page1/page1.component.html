@@ -1,0 +1,10 @@
+
+<app-hello-world [name]="title" [boutonDisabled]="monBoutonDisabled" (clickButton)="onClick($event)"></app-hello-world>
+
+<!-- Avec async:
+<app-todo *ngFor="let t of (todos$ | async)" [title]="t.title" [completed]="t.completed"></app-todo> -->
+
+{{nbCompleted()}} todos completed
+
+<br/><br/>Sans async:
+<app-todo *ngFor="let t of todos" [title]="t.title" [completed]="t.completed" (completedChange)="onCompletedChange(t, $event)"></app-todo>
