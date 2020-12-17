@@ -4,6 +4,7 @@ import Hello from "./Hello";
 import { StateComponent } from "./StateComponent";
 import "./index.css";
 import { TodoComponent } from "./TodoComponent";
+import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 class TodoList extends React.Component {
   state = {
@@ -55,12 +56,31 @@ class TodoList extends React.Component {
     this.setState(this.state);
   };
 }
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <NavLink to="/" activeClassName="activeLink" exact>
+              Todos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/hello" activeClassName="activeLink">
+              Hello
+            </NavLink>
+          </li>
+        </ul>
+        <div>
+          <Route path="/" exact component={TodoList} />
+          <Route path="/hello" component={Hello} />
+        </div>
+      </div>
+    </Router>
+  );
+}
+
 let name = "toto";
-render(
-  <div>
-    <Hello name={name} />
-    <StateComponent />
-    <TodoList />
-  </div>,
-  document.getElementById("root")
-);
+render(<App />, document.getElementById("root"));
