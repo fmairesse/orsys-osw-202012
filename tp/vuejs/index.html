@@ -1,0 +1,44 @@
+<html>
+<body>
+	<h1>Mon appli vuejs</h1>
+	<div id="app">
+		Mon message {{ message }}
+		<button v-bind:title="message" v-on:click="reverseMessage">clic</button>
+		<p v-if="seen">Maintenant vous me voyez</p>
+	  <ol>
+        <todo-item v-bind:todo="t" v-for="t in todos"></todo-item>
+	  </ol>
+      <p>{{ message }}</p>
+      <input v-model="message"/>
+      <input type="checkbox" v-on:change="reverseMessage"/>
+
+	 </div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script>
+		Vue.component('todo-item', {
+		  template: '<li>{{todo.text}}</li>',
+		  props: ['todo'],
+		})
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Vous avez affiché cette page le ' + new Date().toLocaleString(),
+				seen: true,
+				todos: [
+      { text: 'Apprendre JavaScript' },
+      { text: 'Apprendre Vue' },
+      { text: 'Créer quelque chose de génial' }
+				]
+			},
+			methods: {
+                reverseMessage: function () {
+                  this.message = this.message.split('').reverse().join('')
+                }
+			}
+		})
+	</script>
+
+</body>
+</html>
